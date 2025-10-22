@@ -1,11 +1,9 @@
 'use client';
 
-import { useSearchParams } from "next/navigation";
-
-export default function Dashboard() {
-    const params = useSearchParams();
+export default async function Dashboard({params} : {params: Promise<{ roomId: string }>}) {
+    const { roomId } = await params
 
     return (
-        <div>{params.get('roomId')}</div>
+        <div>{roomId}</div>
     )
 }
